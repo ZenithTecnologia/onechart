@@ -19,5 +19,5 @@ version: 1.0.0
 
 dependencies:
   - name: common
-    version: 0.7.0
+    version: 1.0.0
     repository: file://../common
