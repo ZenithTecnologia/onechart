@@ -82,5 +82,12 @@ monitor:
 container: {}
 podSpec: {}
 
+#volumes:
+#  - name: ""
+#    path: ""
+#    pvcAnnotations: {}
+#    size: ""
+#    ephemeral: false
+
 # service:
 #   enabled: false
