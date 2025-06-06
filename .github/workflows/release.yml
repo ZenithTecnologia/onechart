@@ -72,29 +72,36 @@ jobs:
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "Github Action"
-        git checkout master
+        git checkout main
         make package
         git add .
         git commit -m "Publishing $TAG_VERSION to the Helm repository"
-        git push origin master
+        git push origin main
       env:
         TAG_VERSION: ${{ steps.versioning.outputs.tag_version }}
         title: Release ${{ github.ref }}
 
     - name: Publish to to GHCR
       run: |
-        echo ${{ secrets.HELM_TOKEN }} | helm registry login ghcr.io --username ${{ github.actor }} --password-stdin
-        helm push docs/onechart-${CHART_VERSION}.tgz  oci://ghcr.io/gimlet-io
-        helm push docs/cron-job-${CHART_VERSION}.tgz  oci://ghcr.io/gimlet-io
-        helm push docs/static-site-${STATIC_SITE_CHART_VERSION}.tgz  oci://ghcr.io/gimlet-io
+        echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io --username ${{ github.actor }} --password-stdin
+        helm push docs/onechart-${CHART_VERSION}.tgz  oci://ghcr.io/zenithtecnologia
+        helm push docs/cron-job-${CHART_VERSION}.tgz  oci://ghcr.io/zenithtecnologia
+        helm push docs/static-site-${STATIC_SITE_CHART_VERSION}.tgz  oci://ghcr.io/zenithtecnologia
       env:
         CHART_VERSION: ${{ steps.chart_version.outputs.chart_version }}
         STATIC_SITE_CHART_VERSION: ${{ steps.chart_version.outputs.static_site_chart_version }}
+
+    - name: Publish Helm chart to GitHub Pages
+      uses: stefanprodan/helm-gh-pages@0ad2bb377311d61ac04ad9eb6f252fb68e207260 # v1.7.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        linting: off
+
     - name: Preparing the next release version
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "Github Action"
-        git checkout master
+        git checkout main
 
         without_major_version=${CHART_VERSION#*.}
         without_patch_version=${without_major_version%.*}
@@ -110,6 +117,6 @@ jobs:
         git status
         git add .
         git commit -m "The next release version will be $increased_version"
-        git push origin master
+        git push origin main
       env:
         CHART_VERSION: ${{ steps.chart_version.outputs.chart_version }}

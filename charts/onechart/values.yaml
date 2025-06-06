@@ -31,6 +31,7 @@ podSecurityContext:
 securityContext: {}
 
 containerPort: 80
+protocol: "TCP"
 
 resources:
   requests:
