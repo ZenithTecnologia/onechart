@@ -1,0 +1,57 @@
+apiVersion: v1
+entries:
+  common:
+  - apiVersion: v2
+    created: "2025-06-06T23:43:29.929865546Z"
+    description: A Helm chart for Kubernetes
+    digest: 52f6d56a9f3b1fb9ec0c52fa41457a5423e3665a51357f0e5e6194ffeb52bb56
+    name: common
+    type: library
+    urls:
+    - https://ZenithTecnologia.github.io/onechart/common-1.0.0.tgz
+    version: 1.0.0
+  cron-job:
+  - apiVersion: v2
+    created: "2025-06-06T23:43:29.93051751Z"
+    dependencies:
+    - name: common
+      repository: file://../common
+      version: 1.0.0
+    description: One chart to rule them all. A generic Helm chart for your application
+      deployments. Because no-one can remember the Kubernetes yaml syntax.
+    digest: 7cb00ca08e7f2ad7220e6c0c8e8e9d42e4948bcd7099bfc9359940f008b42b8f
+    name: cron-job
+    type: application
+    urls:
+    - https://ZenithTecnologia.github.io/onechart/cron-job-1.0.0.tgz
+    version: 1.0.0
+  onechart:
+  - apiVersion: v2
+    created: "2025-06-06T23:43:29.931340944Z"
+    dependencies:
+    - name: common
+      repository: file://../common
+      version: 1.0.0
+    description: One chart to rule them all. A generic Helm chart for your application
+      deployments. Because no-one can remember the Kubernetes yaml syntax.
+    digest: 02b3f38f3852fcef47b351aedc3ab9b1dbb2c5fd4531318afe84845d1bf89882
+    name: onechart
+    type: application
+    urls:
+    - https://ZenithTecnologia.github.io/onechart/onechart-1.0.0.tgz
+    version: 1.0.0
+  static-site:
+  - apiVersion: v2
+    created: "2025-06-06T23:43:29.931964795Z"
+    dependencies:
+    - name: common
+      repository: file://../common
+      version: 1.0.0
+    description: Chart to build and deploy static sites
+    digest: 680152c52be28169484c5927cb2420df051faa78ac6c4a497e2d4ba7317bb7a5
+    name: static-site
+    type: application
+    urls:
+    - https://ZenithTecnologia.github.io/onechart/static-site-0.74.0.tgz
+    version: 0.74.0
+generated: "2025-06-06T23:43:29.929472569Z"
