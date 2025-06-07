@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   common:
   - apiVersion: v2
+    created: "2025-06-07T00:21:41.72453784Z"
+    description: A Helm chart for Kubernetes
+    digest: 48bdedac2fd7bed8a38b31d2e718ccb230142609df661d976fa1d6ed1745801a
+    name: common
+    type: library
+    urls:
+    - https://ZenithTecnologia.github.io/onechart/common-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2025-06-06T23:43:29.929865546Z"
     description: A Helm chart for Kubernetes
     digest: 52f6d56a9f3b1fb9ec0c52fa41457a5423e3665a51357f0e5e6194ffeb52bb56
@@ -11,6 +20,20 @@ entries:
     - https://ZenithTecnologia.github.io/onechart/common-1.0.0.tgz
     version: 1.0.0
   cron-job:
+  - apiVersion: v2
+    created: "2025-06-07T00:21:41.725199967Z"
+    dependencies:
+    - name: common
+      repository: file://../common
+      version: 1.1.0
+    description: One chart to rule them all. A generic Helm chart for your application
+      deployments. Because no-one can remember the Kubernetes yaml syntax.
+    digest: 60b83daf78144f8f8ff36f48698800ae40e2a84fa0ee88314a50aac862ba0da4
+    name: cron-job
+    type: application
+    urls:
+    - https://ZenithTecnologia.github.io/onechart/cron-job-1.1.0.tgz
+    version: 1.1.0
   - apiVersion: v2
     created: "2025-06-06T23:43:29.93051751Z"
     dependencies:
@@ -27,6 +50,20 @@ entries:
     version: 1.0.0
   onechart:
   - apiVersion: v2
+    created: "2025-06-07T00:21:41.72597784Z"
+    dependencies:
+    - name: common
+      repository: file://../common
+      version: 1.1.0
+    description: One chart to rule them all. A generic Helm chart for your application
+      deployments. Because no-one can remember the Kubernetes yaml syntax.
+    digest: 1406843d150cc27b595ff8cc941e108875ac4fa3c917d7555b306c3e0b4dbc9d
+    name: onechart
+    type: application
+    urls:
+    - https://ZenithTecnologia.github.io/onechart/onechart-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2025-06-06T23:43:29.931340944Z"
     dependencies:
     - name: common
@@ -42,16 +79,16 @@ entries:
     version: 1.0.0
   static-site:
   - apiVersion: v2
-    created: "2025-06-06T23:43:29.931964795Z"
+    created: "2025-06-07T00:21:41.726591135Z"
     dependencies:
     - name: common
       repository: file://../common
-      version: 1.0.0
+      version: 1.1.0
     description: Chart to build and deploy static sites
-    digest: 680152c52be28169484c5927cb2420df051faa78ac6c4a497e2d4ba7317bb7a5
+    digest: cd1b5eed52d9244d0c98cd644654628677f6025611450ee82fdd0abcb5fa6fba
     name: static-site
     type: application
     urls:
     - https://ZenithTecnologia.github.io/onechart/static-site-0.74.0.tgz
     version: 0.74.0
-generated: "2025-06-06T23:43:29.929472569Z"
+generated: "2025-06-07T00:21:41.724150386Z"
